@@ -1,0 +1,25 @@
+int findSlot(int start)  从start开始找出第一个空元素的位置，如果当前数组元素满的，则扩大当前数组2倍的容量
+
+boolean addAll(Collection<? Extends E>c) 
+1.当前数组里面找null元素位置，然后依次插入c的元素
+2.bubbleUp(index) 最小堆实现，把小的元素一次往顶部挪，时间复杂度n * logn 操作c 的元素次数
+
+void clear()  Arrays.fill(storage, null); 数组里面都填null
+
+Iterator<E> iterator() 
+1. E next() 从0开始找到不为空的数据返回
+2. void remove()  前提条件需要进行next操作？否则 index = -1 无法remove？
+
+boolean offer(E o) 
+1. findSlot(-1) 从0开始寻找第一个为null的索引，然后插入o对象
+2. bubble(slot) 进行最小堆排序
+
+E peek（）
+无数据时候返回null，有数据时候返回索引为0的数据
+
+E poll()
+无数据时候返回null，有数据时候返回索引为0的数据，并且移除该数据
+
+void remove(int index) 
+也是利用堆排序，现判定左右子树大小，大的元素用来填充index值，循环终止条件到达树的根。
+
